@@ -413,7 +413,7 @@ https://templatemo.com/tm-528-elegance
                                         </div>
                                     </div>
                                     <div class="col-md-6 animate" data-animate="fadeInUp">
-                                        <form id="ajax-contact" method="post" action="#">
+                                        <form action="https://api.whatsapp.com/send" id="ajax-contact" method="get" target="_blank" onsubmit="submitForm()">
                                             <div class="input-field">
                                                 <input type="text" class="form-control" name="name" id="name" required placeholder="Name">
                                             </div>
@@ -452,6 +452,19 @@ https://templatemo.com/tm-528-elegance
             link.href = 'cv.pdf';
             link.download = 'CV-Fuaidil Ikhrom.pdf';
             link.click();
+        }
+    </script>
+    <script>
+        function submitForm() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+    
+            const whatsappMessage = `Nama: ${name}%0AEmail: ${email}%0APesan: ${message}`;
+            const whatsappNumber = '6285975127759'; 
+    
+            const whatsappURL = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${whatsappMessage}`;
+            window.open(whatsappURL, '_blank');
         }
     </script>
 
